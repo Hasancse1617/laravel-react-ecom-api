@@ -34,6 +34,7 @@ class AdminController extends Controller
 
             return response()->json([
                'success'=>true,
+               'user' => Auth::guard('admin')->user(),
                'token'=>$token,
             ], 200);
         }

@@ -20,4 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->namespace('Admin')->group(function(){
     Route::match(['get','post'], '/login', 'AdminController@login');
+
+    Route::group(['middleware'=>['auth:admin']], function(){
+       Route::get('/user', 'AdminController@user');
+    });
 });
