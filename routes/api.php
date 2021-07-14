@@ -22,6 +22,11 @@ Route::prefix('admin')->namespace('Admin')->group(function(){
     Route::match(['get','post'], '/login', 'AdminController@login');
 
     Route::group(['middleware'=>['auth:admin']], function(){
-       Route::get('/user', 'AdminController@user');
+       Route::get('/all-user/{page}', 'UserController@allUser');
+       Route::post('/create-user', 'UserController@createUser');
+       Route::get('/edit-user/{id}', 'UserController@editUser');
+       Route::post('/update-user/{id}', 'UserController@updateUser');
+       Route::post('/update-user-password/{id}', 'UserController@updateUserPassword');
+       Route::get('/delete-user/{id}', 'UserController@deleteUser');
     });
 });
