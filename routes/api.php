@@ -33,5 +33,13 @@ Route::prefix('admin')->namespace('Admin')->group(function(){
        Route::post('/update-user-password/{id}', 'UserController@updateUserPassword');
        Route::get('/delete-user/{id}', 'UserController@deleteUser');
        
+       //Category Route
+       Route::get('/all-category/{page}', 'CategoryController@allCategory');
+       Route::get('/parent-categories', 'CategoryController@parentCategory');
+       Route::post('/create-category', 'CategoryController@createCategory');
+       Route::post('/status-category', 'CategoryController@statusCategory');
+       Route::get('/edit-category/{id}', 'CategoryController@editCategory');
+       Route::post('/update-category/{id}', 'CategoryController@updateCategory');
+       Route::get('/delete-category/{id}', 'CategoryController@deleteCategory');
     });
 });
