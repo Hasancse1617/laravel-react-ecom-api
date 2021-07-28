@@ -33,6 +33,22 @@ Route::prefix('admin')->namespace('Admin')->group(function(){
        Route::post('/update-user-password/{id}', 'UserController@updateUserPassword');
        Route::get('/delete-user/{id}', 'UserController@deleteUser');
        
+       //Brand Route
+       Route::get('/brands/{page}', 'BrandController@brands');
+       Route::post('/create-brand', 'BrandController@createBrand');
+       Route::post('/status-brand', 'BrandController@statusBrand');
+       Route::get('/edit-brand/{id}', 'BrandController@editBrand');
+       Route::post('/update-brand/{id}', 'BrandController@updateBrand');
+       Route::get('/delete-brand/{id}', 'BrandController@deleteBrand');
+
+       //Banner Route
+       Route::get('/all-banner/{page}', 'BannerController@allBanner');
+       Route::post('/create-banner', 'BannerController@createBanner');
+       Route::post('/status-banner', 'BannerController@statusBanner');
+       Route::get('/edit-banner/{id}', 'BannerController@editBanner');
+       Route::post('/update-banner/{id}', 'BannerController@updateBanner');
+       Route::get('/delete-banner/{id}', 'BannerController@deleteBanner');
+
        //Category Route
        Route::get('/all-category/{page}', 'CategoryController@allCategory');
        Route::get('/parent-categories', 'CategoryController@parentCategory');
@@ -41,5 +57,22 @@ Route::prefix('admin')->namespace('Admin')->group(function(){
        Route::get('/edit-category/{id}', 'CategoryController@editCategory');
        Route::post('/update-category/{id}', 'CategoryController@updateCategory');
        Route::get('/delete-category/{id}', 'CategoryController@deleteCategory');
+
+       //Product Route
+       Route::get('/all-product/{page}', 'ProductController@allProduct');
+       Route::get('/all-categories', 'ProductController@allCategories');
+       Route::get('/all-brands', 'ProductController@allBrands');
+       Route::post('/create-product', 'ProductController@createProduct');
+       Route::post('/status-product', 'ProductController@statusProduct');
+       Route::get('/edit-product/{id}', 'ProductController@editProduct');
+       Route::post('/update-product/{id}', 'ProductController@updateProduct');
+       Route::get('/delete-product/{id}', 'ProductController@deleteProduct');
+
+       //ProductImages
+       Route::post('/add-product-images/{id}', 'ProductController@addImages');
+       Route::get('/all-images/{id}', 'ProductController@allImages');
+       Route::get('/delete-product-image/{id}', 'ProductController@deleteImages');
+       Route::post('/status-image', 'ProductController@statusImage');
+    
     });
 });

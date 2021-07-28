@@ -127,7 +127,7 @@ class CategoryController extends Controller
            $category = Category::find($id);
            $category->category_name = $request->category_name;
            $category->url = $request->url;
-           if($request->parent_id){
+           if($request->parent_id == null){
                 $category->parent_id = 0;
            }else{
                $category->parent_id = $request->parent_id;
